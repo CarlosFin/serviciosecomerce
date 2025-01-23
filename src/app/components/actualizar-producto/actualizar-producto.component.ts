@@ -12,6 +12,7 @@ export class ActualizarProductoComponent {
   productDesc: string | null = null;
   productColores: string[] = [];
   productId: number = 0;
+  productImagen: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +28,8 @@ export class ActualizarProductoComponent {
     this.nombreProduct = this.productNombre || '';
     this.descProduct = this.productDesc || '';
     this.coloresProduct = [...this.productColores];
+
+    this.productImagen = this.route.snapshot.queryParamMap.get('imagen');
   }
 
   nombreProduct: string = '';
@@ -41,11 +44,25 @@ export class ActualizarProductoComponent {
     colores: this.coloresProduct,
   };
 
+  onImageChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.productImagen = reader.result as string; // Guardamos la imagen seleccionada
+      };
+      reader.readAsDataURL(file);
+    } else {
+      this.productImagen = null; // Si no se seleccionó archivo, asignamos `undefined`
+    }
+  }
+
   actualizarProduct(id: number) {
     const nuevaInfo = {
       nombre: this.nombreProduct,
       descripcion: this.descProduct,
       colores: this.coloresProduct,
+      imagen: this.productImagen || undefined,
     }; // Marcamos la tarea como completada
     this.productService.updateProduct(id, nuevaInfo); // Actualizamos la tarea
     this.products = this.productService.getProducts(); // Actualizamos la lista en la vista

@@ -11,7 +11,9 @@
     <label for="colores" class="form-label">Colores</label>
     <input type="text" class="form-control" placeholder={{productColores}} [(ngModel)]="coloresProduct">
   </div>
-
+  <div class="mb-3">
+    <label for="imagen" class="form-label">Subir imagen (opcional)</label>
+    <input type="file" class="form-control" id="imagen" (change)="onImageChange($event)">
+  </div>
   <button class="btn btn-primary" (click)=" actualizarProduct(product.id)" routerLink="/home-ecomerce">Actualizar</button>
-  <!-- <button class="btn btn-primary" (click)="getId(product.id)">Actualizar</button> -->
 </div>

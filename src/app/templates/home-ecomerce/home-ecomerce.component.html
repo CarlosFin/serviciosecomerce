@@ -1,6 +1,4 @@
-<div class="header">
-  <h1 class="alineacion">Productos</h1>
-</div>
+<app-header></app-header>
 
 <div class="padre">
   <div class="card" *ngFor="let product of products">
@@ -13,12 +11,9 @@
     <button class="btn btn-primary"  [routerLink]="['/actualizar-producto', product.id]" [queryParams]="{ nombre: product.nombre, descripcion: product.descripcion, colores: product.colores }">Actualizar</button>
     <button class="btn btn-primary" (click)="eliminarProducto(product.id)">Eliminar</button>
   </div>
-<button class="info" routerLink="/crear-producto">
-  <span class="justify-content-center align-items-center mas">+</span>
-</button>
-
+  <button class="info" routerLink="/crear-producto">
+    <span class="justify-content-center align-items-center mas">+</span>
+  </button>
 </div>
 
-<div class="footer">
-  <p class="alineacion">Trabajo echo por Carlos Rivas López</p>
-</div>
+<app-footer></app-footer>

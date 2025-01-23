@@ -41,7 +41,7 @@ export class ProductosService {
   // Actualizar producto
   updateProduct(
     id: number,
-    nuevoProduct: { nombre?: string; descripcion?: string; colores?: string[]; imagen?: string }
+    nuevoProduct: { nombre?: string; descripcion?: string; colores?: string[]; imagen?: string}
   ) {
     const index = this.products.findIndex((product) => product.id === id);
 
