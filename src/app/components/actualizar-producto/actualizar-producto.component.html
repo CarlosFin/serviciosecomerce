@@ -1,0 +1,17 @@
+<div class="centrado">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre producto</label>
+    <input type="text" class="form-control" placeholder={{productNombre}} [(ngModel)]="nombreProduct">
+  </div>
+  <div class="mb-3">
+    <label for="descripcion" class="form-label">Descripcion</label>
+    <textarea class="form-control" rows="3" placeholder={{productDesc}} [(ngModel)]="descProduct"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="colores" class="form-label">Colores</label>
+    <input type="text" class="form-control" placeholder={{productColores}} [(ngModel)]="coloresProduct">
+  </div>
+
+  <button class="btn btn-primary" (click)=" actualizarProduct(product.id)" routerLink="/home-ecomerce">Actualizar</button>
+  <!-- <button class="btn btn-primary" (click)="getId(product.id)">Actualizar</button> -->
+</div>

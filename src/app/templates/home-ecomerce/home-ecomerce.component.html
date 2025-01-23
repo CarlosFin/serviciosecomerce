@@ -1,0 +1,24 @@
+<div class="header">
+  <h1 class="alineacion">Productos</h1>
+</div>
+
+<div class="padre">
+  <div class="card" *ngFor="let product of products">
+    <img [src]="product.imagen" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{product.nombre}}</h5>
+      <p class="card-text">{{product.descripcion}}</p>
+      <p class="card-text">{{product.colores}}</p>
+    </div>
+    <button class="btn btn-primary"  [routerLink]="['/actualizar-producto', product.id]" [queryParams]="{ nombre: product.nombre, descripcion: product.descripcion, colores: product.colores }">Actualizar</button>
+    <button class="btn btn-primary" (click)="eliminarProducto(product.id)">Eliminar</button>
+  </div>
+<button class="info" routerLink="/crear-producto">
+  <span class="justify-content-center align-items-center mas">+</span>
+</button>
+
+</div>
+
+<div class="footer">
+  <p class="alineacion">Trabajo echo por Carlos Rivas López</p>
+</div>

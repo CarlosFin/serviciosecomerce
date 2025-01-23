@@ -1,0 +1,27 @@
+<div class="centrado">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre producto</label>
+    <input type="email" class="form-control" id="nombre" placeholder="Bicicleta" [(ngModel)]="nombreProducto">
+  </div>
+  <div class="mb-3">
+    <label for="descripcion" class="form-label">Descripcion</label>
+    <textarea class="form-control" id="descripcion" rows="3" placeholder="Muy bonita y practica..." [(ngModel)]="descripcionProducto"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="colores" class="form-label">Colores</label>
+    <input type="email" class="form-control" id="colores" placeholder="Amarillo, Azul, Rojo"  [(ngModel)]="coloresProducto">
+  </div>
+
+  <div class="mb-3">
+    <label for="imagen" class="form-label">Subir imagen</label>
+    <input type="file" class="form-control" id="imagen" (change)="onImageChange($event)">
+  </div>
+
+  <button class="btn btn-primary" (click)="agregarTarea()" routerLink="/home-ecomerce">Crear</button>
+
+  <div *ngIf="imagenProducto">
+    <h3>Imagen previa:</h3>
+    <img [src]="imagenProducto" alt="Imagen del producto" style="max-width: 200px; margin-top: 10px;">
+  </div>
+
+</div>

@@ -1,0 +1,15 @@
+.centrado{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+input{
+  width: 300px;
+}
+
+textarea{
+  width: 300px;
+}
